@@ -23,6 +23,7 @@ use Psr\Log\LoggerInterface;
  */
 class BaseController extends Controller
 {
+    use ViewManager;
     /**
      * Instance of the main Request object.
      *
@@ -44,11 +45,7 @@ class BaseController extends Controller
      * @var \CodeIgniter\Session\Session
      */
     protected $session;
-    /**
-     * An array of data that will be passed to the view when render is called
-     * @var array
-     */
-    private $view_data = [];
+
     /**
      * Constructor.
      */
@@ -58,66 +55,10 @@ class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-        /**
-         * @var $config \Config\App
-         */
-        $config = config(App::class);
-        $this->view_data['title'] = $config->appName;
-        $this->view_data['path'] = $this->request->getPath();
-        $this->view_data['user'] = user();
-        $this->setViewData('appName', $config->appName);
+        $this->initViewManager();
         $this->session = Services::session();
         // E.g.: $this->session = \Config\Services::session();
     }
 
-    protected function getViewData(string $key): mixed
-    {
-        return $this->view_data[$key];
-    }
-
-    protected function setViewData(string $key, mixed $value): void
-    {
-        $this->view_data[$key] = $value;
-    }
-
-    protected function unsetViewData(?string $key){
-        if (!is_null($key)){
-            unset($this->view_data[$key]);
-        }else{
-            $this->view_data = [];
-        }
-    }
-    protected function render(string $view, bool $with_view_data = true, array $options = []){
-        return view($view,$with_view_data?$this->view_data:[],$options);
-    }
-    /**
-     * @param string $path
-     * @param bool $async
-     */
-    protected function addCSS(string $path, bool $async = false): void{
-        array_push($this->view_data['css_files'],['path'=>$path,'async' => $async]);
-    }
-
-    /**
-     * @param string $path
-     */
-    protected function removeCSS(string $path):void{
-        //TODO: Implement Function
-    }
-
-    /**
-     * @param string $path
-     * @param bool $async
-     */
-    protected function addJS(string $path, bool $async = false){
-        array_push($this->view_data['js_files'],['path'=>$path,'async' => $async]);
-    }
-
-    /**
-     * @param string $path
-     */
-    protected function removeJS(string $path): void{
-        //TODO: Implement Function
-    }
 
 }

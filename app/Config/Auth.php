@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Config;
+namespace Config;
 
 class Auth extends \Myth\Auth\Config\Auth
 {
@@ -12,12 +12,12 @@ class Auth extends \Myth\Auth\Config\Auth
      * @var array
      */
     public $views = [
-        'login'		   => 'Auth\Views\login',
-        'register'		=> 'Auth\Views\register',
-        'forgot'		  => 'Auth\Views\forgot',
-        'reset'		   => 'Auth\Views\reset',
-        'emailForgot'	 => 'Auth\Views\emails\forgot',
-        'emailActivation' => 'Auth\Views\emails\activation',
+        'login'		   => 'Auth\login',
+        'register'		=> 'Auth\register',
+        'forgot'		  => 'Auth\forgot',
+        'reset'		   => 'Auth\reset',
+        'emailForgot'	 => 'Auth\emails\forgot',
+        'emailActivation' => 'Auth\emails\activation',
     ];
     public $viewLayout = 'Layouts/default';
     public $allowRemembering = true;

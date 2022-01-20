@@ -14,7 +14,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-        public $appName = '';
+        public $appName = 'Awesome App';
     /**
      * --------------------------------------------------------------------------
      * Base Site URL
@@ -32,7 +32,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8080/';
+    public $baseURL = 'http://wonderlic.test';
 
     /**
      * --------------------------------------------------------------------------
