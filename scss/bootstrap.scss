@@ -1,0 +1,75 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../vendor/twbs/bootstrap/scss/functions";
+// 2. Include any default variable overrides here
+
+//$primary: #4d39e9;
+//$secondary: #636466;
+//$navbar-light-color:                rgba($primary, .55);
+//$navbar-light-hover-color:          rgba($primary, .7);
+//$navbar-light-active-color:         rgba($primary, .9);
+//$navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{rgba($primary,.55)}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+//$navbar-light-toggler-border-color: $primary;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1320px,
+        xxl: 1400px,
+);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1260px,
+        xxl: 1320px,
+);
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: sans-serif;
+$font-family-monospace: monospace;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../vendor/twbs/bootstrap/scss/variables";
+@import "../vendor/twbs/bootstrap/scss/mixins";
+@import "../vendor/twbs/bootstrap/scss/root";
+
+// 4. Include any optional Bootstrap CSS as needed
+@import "../vendor/twbs/bootstrap/scss/utilities";
+@import "../vendor/twbs/bootstrap/scss/helpers";
+@import "../vendor/twbs/bootstrap/scss/reboot";
+@import "../vendor/twbs/bootstrap/scss/type";
+//@import "../vendor/twbs/bootstrap/scss/images";
+@import "../vendor/twbs/bootstrap/scss/containers";
+@import "../vendor/twbs/bootstrap/scss/grid";
+//@import "../vendor/twbs/bootstrap/scss/nav";
+//@import "../vendor/twbs/bootstrap/scss/navbar";
+//@import "../vendor/twbs/bootstrap/scss/dropdown";
+//@import "../vendor/twbs/bootstrap/scss/transitions";
+//@import "../vendor/twbs/bootstrap/scss/card";
+//@import "../vendor/twbs/bootstrap/scss/forms";
+//@import "../vendor/twbs/bootstrap/scss/buttons";
+//@import "../vendor/twbs/bootstrap/scss/list-group";
+//@import "../vendor/twbs/bootstrap/scss/tables";
+//@import "../vendor/twbs/bootstrap/scss/modal";
+//@import "../vendor/twbs/bootstrap/scss/carousel";
+//@import "../vendor/twbs/bootstrap/scss/offcanvas";
+//@import "../vendor/twbs/bootstrap/scss/close";
+//@import "../vendor/twbs/bootstrap/scss/accordion";
+//@import "../vendor/twbs/bootstrap/scss/alert";
+//@import "../vendor/twbs/bootstrap/scss/badge";
+//@import "../vendor/twbs/bootstrap/scss/breadcrumb";
+//@import "../vendor/twbs/bootstrap/scss/button-group";
+//@import "../vendor/twbs/bootstrap/scss/pagination";
+//@import "../vendor/twbs/bootstrap/scss/placeholders";
+//@import "../vendor/twbs/bootstrap/scss/popover";
+//@import "../vendor/twbs/bootstrap/scss/progress";
+//@import "../vendor/twbs/bootstrap/scss/spinners";
+//@import "../vendor/twbs/bootstrap/scss/toasts";
+//@import "../vendor/twbs/bootstrap/scss/tooltip";
+
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../vendor/twbs/bootstrap/scss/utilities/api";
+// 6. Add additional custom code here
