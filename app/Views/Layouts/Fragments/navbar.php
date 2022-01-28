@@ -8,13 +8,11 @@
 
 $logged_in = (function_exists('logged_in') && logged_in());
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary"
+<nav class="navbar navbar-expand-lg navbar-light bg-white"
      id="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand text-white ms-lg-5" href="<?= base_url() ?>">
-            <img class="my-3 img-fluid"
-                 src="<?= base_url('/assets/img/logos/logo.png') ?>"
-                 alt="<?= $appName?>" width="253" height="50">
+        <a class="navbar-brand ms-lg-5" href="<?= base_url() ?>">
+                 <?= $appName?>
         </a>
         <?php if ($logged_in) : ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -39,29 +37,6 @@ $logged_in = (function_exists('logged_in') && logged_in());
                                 <li class="dropdown-item">Logout</li>
                             </a>
                         </ul>
-                    </li>
-                </ul>
-            </div>
-        <?php else: ?>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse me-lg-5 " id="mainNav">
-                <ul class="navbar-nav ms-lg-auto text-center">
-                    <li class="nav-item me-lg-3">
-                        <a href="<?=base_url('/register')?>">
-                        <button class="btn btn-outline-light" >
-                            Join For Free
-                        </button>
-                        </a>
-                    </li>
-                    <li class="nav-item mt-1 mt-lg-0">
-                        <a href="<?=base_url('/login')?>">
-                            <button class="btn btn-outline-light">
-                                Login
-                            </button>
-                        </a>
                     </li>
                 </ul>
             </div>

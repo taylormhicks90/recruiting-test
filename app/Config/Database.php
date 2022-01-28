@@ -15,7 +15,7 @@ class Database extends Config
      *
      * @var string
      */
-    public $filesPath = APPPATH . 'Database' . DIRECTORY_SEPARATOR;
+    public string $filesPath = APPPATH . 'Database' . DIRECTORY_SEPARATOR;
 
     /**
      * Lets you choose which connection group to
@@ -23,19 +23,19 @@ class Database extends Config
      *
      * @var string
      */
-    public $defaultGroup = 'default';
+    public string $defaultGroup = 'default';
 
     /**
      * The default database connection.
      *
      * @var array
      */
-    public $default = [
+    public array $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'username' => 'wonderlic',
+        'password' => 'uqc[-xbWHmrDoh7G',
+        'database' => 'wonderlictest',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -56,7 +56,7 @@ class Database extends Config
      *
      * @var array
      */
-    public $tests = [
+    public array $tests = [
         'DSN'      => '',
         'hostname' => '127.0.0.1',
         'username' => '',

@@ -2,8 +2,8 @@
 @import "../vendor/twbs/bootstrap/scss/functions";
 // 2. Include any default variable overrides here
 
-//$primary: #4d39e9;
-//$secondary: #636466;
+$primary: rgba(3, 169, 244, 0.7);
+$secondary: #ff0000;
 //$navbar-light-color:                rgba($primary, .55);
 //$navbar-light-hover-color:          rgba($primary, .7);
 //$navbar-light-active-color:         rgba($primary, .9);
@@ -51,7 +51,7 @@ $font-family-monospace: monospace;
 @import "../vendor/twbs/bootstrap/scss/forms";
 @import "../vendor/twbs/bootstrap/scss/buttons";
 @import "../vendor/twbs/bootstrap/scss/list-group";
-//@import "../vendor/twbs/bootstrap/scss/tables";
+@import "../vendor/twbs/bootstrap/scss/tables";
 //@import "../vendor/twbs/bootstrap/scss/modal";
 //@import "../vendor/twbs/bootstrap/scss/carousel";
 //@import "../vendor/twbs/bootstrap/scss/offcanvas";

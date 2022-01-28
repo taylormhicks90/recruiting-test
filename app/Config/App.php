@@ -14,7 +14,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-        public $appName = 'Awesome App';
+        public $appName = 'Recruiting Tests';
     /**
      * --------------------------------------------------------------------------
      * Base Site URL
