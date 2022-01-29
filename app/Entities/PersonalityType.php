@@ -17,14 +17,15 @@ class PersonalityType
             'Amiable Analytical', 'Amiable Expressive', 'Amiable Flexible', 'Pure Amiable' => 'Amiable',
             'Analytical Amiable', 'Analytical Driver', 'Analytical Flexible', 'Pure Analytical' => 'Analytical',
             'Driver Analytical', 'Driver Expressive', 'Driver Flexible', 'Pure Driver' => 'Driver',
-            'Expressive Amiable', 'Expressive Driver', 'Expressive Flexible', 'Pure Expressive' => 'Expressive'
+            'Expressive Amiable', 'Expressive Driver', 'Expressive Flexible', 'Pure Expressive' => 'Expressive',
+            'Ninja' => 'Ninja'
         };
     }
 
     public function getSecondaryType()
     {
         return match ($this->value) {
-            'Pure Expressive', 'Pure Driver', 'Pure Analytical', 'Pure Amiable' => 'None',
+            'Pure Expressive', 'Pure Driver', 'Pure Analytical', 'Pure Amiable', 'Ninja' => 'None',
             'Expressive Flexible', 'Driver Flexible', 'Analytical Flexible', 'Amiable Flexible' => 'Flexible',
             'Expressive Driver', 'Analytical Driver' => 'Driver',
             'Driver Expressive', 'Amiable Expressive' => 'Expressive',
