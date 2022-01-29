@@ -4,16 +4,16 @@ namespace App\Entities;
 
 class PersonalityType
 {
-    public string $type;
+    public string $value;
 
     public function __construct($type)
     {
-        $this->type = $type;
+        $this->value = $type;
         
     }
     public function getPrimaryType()
     {
-        return match ($this->type) {
+        return match ($this->value) {
             'AmiableAnalytical', 'AmiableExpressive', 'AmiableFlexible', 'PureAmiable' => 'Amiable',
             'AnalyticalAmiable', 'AnalyticalDriver', 'AnalyticalFlexible', 'PureAnalytical' => 'Analytical',
             'DriverAnalytical', 'DriverExpressive', 'DriverFlexible', 'PureDriver' => 'Driver',
@@ -23,7 +23,7 @@ class PersonalityType
 
     public function getSecondaryType()
     {
-        return match ($this->type) {
+        return match ($this->value) {
             'PureExpressive', 'PureDriver', 'PureAnalytical', 'PureAmiable' => 'None',
             'ExpressiveFlexible', 'DriverFlexible', 'AnalyticalFlexible', 'AmiableFlexible' => 'Flexible',
             'ExpressiveDriver', 'AnalyticalDriver' => 'Driver',
