@@ -14,22 +14,22 @@ class PersonalityType
     public function getPrimaryType()
     {
         return match ($this->value) {
-            'AmiableAnalytical', 'AmiableExpressive', 'AmiableFlexible', 'PureAmiable' => 'Amiable',
-            'AnalyticalAmiable', 'AnalyticalDriver', 'AnalyticalFlexible', 'PureAnalytical' => 'Analytical',
-            'DriverAnalytical', 'DriverExpressive', 'DriverFlexible', 'PureDriver' => 'Driver',
-            'ExpressiveAmiable', 'ExpressiveDriver', 'ExpressiveFlexible', 'PureExpressive' => 'Expressive'
+            'Amiable Analytical', 'Amiable Expressive', 'Amiable Flexible', 'Pure Amiable' => 'Amiable',
+            'Analytical Amiable', 'Analytical Driver', 'Analytical Flexible', 'Pure Analytical' => 'Analytical',
+            'Driver Analytical', 'Driver Expressive', 'Driver Flexible', 'Pure Driver' => 'Driver',
+            'Expressive Amiable', 'Expressive Driver', 'Expressive Flexible', 'Pure Expressive' => 'Expressive'
         };
     }
 
     public function getSecondaryType()
     {
         return match ($this->value) {
-            'PureExpressive', 'PureDriver', 'PureAnalytical', 'PureAmiable' => 'None',
-            'ExpressiveFlexible', 'DriverFlexible', 'AnalyticalFlexible', 'AmiableFlexible' => 'Flexible',
-            'ExpressiveDriver', 'AnalyticalDriver' => 'Driver',
-            'DriverExpressive', 'AmiableExpressive' => 'Expressive',
-            'ExpressiveAmiable', 'AnalyticalAmiable' => 'Amiable',
-            'DriverAnalytical', 'AmiableAnalytical' => 'Analytical'
+            'Pure Expressive', 'Pure Driver', 'Pure Analytical', 'Pure Amiable' => 'None',
+            'Expressive Flexible', 'Driver Flexible', 'Analytical Flexible', 'Amiable Flexible' => 'Flexible',
+            'Expressive Driver', 'Analytical Driver' => 'Driver',
+            'Driver Expressive', 'Amiable Expressive' => 'Expressive',
+            'Expressive Amiable', 'Analytical Amiable' => 'Amiable',
+            'Driver Analytical', 'Amiable Analytical' => 'Analytical'
         };
     }
 }

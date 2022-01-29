@@ -68,29 +68,29 @@ class PATest extends \CodeIgniter\Entity\Entity
         $y = $this->getYAxis();
         return match (true) {
             ($y < -10) => match (true) {
-                ($x < -10) => new PersonalityType('PureAmiable'),
-                ($x > -10 && $x < 0) => new PersonalityType('AmiableExpressive'),
-                ($x > 0 && $x < 10) => new PersonalityType('ExpressiveAmiable'),
-                ($x > 10) => new PersonalityType('PureExpressive')
+                ($x < -10) => new PersonalityType('Pure Amiable'),
+                ($x > -10 && $x < 0) => new PersonalityType('Amiable Expressive'),
+                ($x > 0 && $x < 10) => new PersonalityType('Expressive Amiable'),
+                ($x > 10) => new PersonalityType('Pure Expressive')
             },
             ($y > -10 && $y < 0) => match (true) {
-                ($x < -10) => new PersonalityType('AmiableAnalytical'),
-                ($x > -10 && $x < 0) => new PersonalityType('AmiableFlexible'),
-                ($x > 0 && $x < 10) => new PersonalityType('ExpressiveFlexible'),
-                ($x > 10) => new PersonalityType('ExpressiveDriver')
+                ($x < -10) => new PersonalityType('Amiable Analytical'),
+                ($x > -10 && $x < 0) => new PersonalityType('Amiable Flexible'),
+                ($x > 0 && $x < 10) => new PersonalityType('Expressive Flexible'),
+                ($x > 10) => new PersonalityType('Expressive Driver')
             },
             ($y > 0 && $y < 10) => match (true) {
 
-                ($x < -10) => new PersonalityType('AnalyticalAmiable'),
-                ($x > -10 && $x < 0) => new PersonalityType('AnalyticalFlexible'),
-                ($x > 0 && $x < 10) => new PersonalityType('DriverFlexible'),
-                ($x > 10) => new PersonalityType('DriverExpressive')
+                ($x < -10) => new PersonalityType('Analytical Amiable'),
+                ($x > -10 && $x < 0) => new PersonalityType('Analytical Flexible'),
+                ($x > 0 && $x < 10) => new PersonalityType('Driver Flexible'),
+                ($x > 10) => new PersonalityType('Driver Expressive')
             },
             ($y > 10) => match (true) {
-                ($x < -10) => new PersonalityType('PureAnalytical'),
-                ($x > -10 && $x < 0) => new PersonalityType('AnalyticalDriver'),
-                ($x > 0 && $x < 10) => new PersonalityType('DriverAnalytical'),
-                ($x > 10) => new PersonalityType('PureDriver')
+                ($x < -10) => new PersonalityType('Pure Analytical'),
+                ($x > -10 && $x < 0) => new PersonalityType('Analytical Driver'),
+                ($x > 0 && $x < 10) => new PersonalityType('Driver Analytical'),
+                ($x > 10) => new PersonalityType('Pure Driver')
             }
         };
     }

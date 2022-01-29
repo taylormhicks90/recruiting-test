@@ -20,10 +20,7 @@ class CATestController extends BaseController
         $CATest = new CATest();
         $test_model = model(CATestsModel::class);
         $test_questions = model(CAQuestionsModel::class)->getTest();
-        $this->session->set('candidateId', $CATest->candidate_id = $candidate_id);
-        $this->session->set('CATestStartTime', $CATest->start_time = time());
         $this->session->set('CATestId', $testID = $test_model->insert($CATest,true));
-        $this->session->set('testQuestions',$test_questions);
         $testResponseModel = model(CAResponsesModel::class);
         $testResponse = new CATestResponse();
         $testResponse->test_id = $testID;
