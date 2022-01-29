@@ -73,13 +73,13 @@ class PATest extends \CodeIgniter\Entity\Entity
         if ($y == -10) $y++;
         if ($y == 10) $y++;
         //We are going to define a special type for 0,0 otherwise values of 0 on either axis result in an undefined type
-        //if the person scores 0,0 we will leave them alone other wise we round down away from our desired type
+        //if the person scores 0,0 we will leave them alone otherwise we round down away from our desired type
         if (!($x == 0 && $y == 0)){
             if($x == 0) $x--;
             if($y == 0) $y--;
         }
         return match (true) {
-            ($x ==0 && $y == 0) => SalesType::Ninja,
+            ($x ==0 && $y == 0) => new PersonalityType('Ninja'),
             ($y < -10) => match (true) {
                 ($x < -10) => new PersonalityType('Pure Amiable'),
                 ($x > -10 && $x < 0) => new PersonalityType('Amiable Expressive'),
