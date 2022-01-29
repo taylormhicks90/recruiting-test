@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use App\Entities\WonderlicTest;
+use App\Entities\CATest;
 use CodeIgniter\Model;
 
-class WonderlicTestModel extends Model
+class CATestsModel extends Model
 {
-    protected $table      = 'tests';
+    protected $table      = 'ca_tests';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
 
-    protected $returnType     = WonderlicTest::class;
+    protected $returnType     = CATest::class;
     protected $useSoftDeletes = false;
 
     protected $allowedFields = ['candidate_id', 'start_time','end_time'];

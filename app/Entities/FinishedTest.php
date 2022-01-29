@@ -5,7 +5,7 @@ namespace App\Entities;
 class FinishedTest
 {
     /**
-     * @var \App\Entities\WonderlicTestResponse[] $questions
+     * @var \App\Entities\CATestResponse[] $questions
      */
     private array $questions;
     private int $correct_answers = 0;
@@ -28,7 +28,7 @@ class FinishedTest
     }
 
     /**
-     * @return \App\Entities\WonderlicTestResponse[]
+     * @return \App\Entities\CATestResponse[]
      */
     public function getQuestions(): array
     {

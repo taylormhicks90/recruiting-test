@@ -16,11 +16,13 @@ class create_pa_test_tables extends \CodeIgniter\Database\Migration
         $this->forge->addField([
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
             'candidate_id' => ['type' => 'varchar', 'constraint' => 255],
-            'x_axis' => ['type' => 'int','constraint' => 2,'unsigned' => true],
-            'y_axis' => ['type' => 'datetime', 'null' => true],
+            'a_answers' => ['type' => 'varchar','constraint' => 500],
+            'b_answers' => ['type' => 'varchar','constraint' => 500],
+            'c_answers' => ['type' => 'varchar','constraint' => 500],
+            'd_answers' => ['type' => 'varchar','constraint' => 500],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('pa_assesment', true);
+        $this->forge->createTable('pa_assessment', true);
     }
 
     /**
@@ -28,6 +30,6 @@ class create_pa_test_tables extends \CodeIgniter\Database\Migration
      */
     public function down()
     {
-        // TODO: Implement down() method.
+        $this->forge->dropTable('pa_assessment');
     }
 }

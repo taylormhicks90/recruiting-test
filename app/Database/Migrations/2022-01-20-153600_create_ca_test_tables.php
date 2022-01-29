@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use phpDocumentor\Reflection\Type;
 
-class create_wonderlic_test_tables extends \CodeIgniter\Database\Migration
+class create_ca_test_tables extends \CodeIgniter\Database\Migration
 {
 
     /**
@@ -22,13 +22,14 @@ class create_wonderlic_test_tables extends \CodeIgniter\Database\Migration
             'end_time' => ['type' => 'datetime', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('tests', true);
+        $this->forge->createTable('ca_tests', true);
 
         /*
         * Test Questions
         */
         $this->forge->addField([
             'id' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
+            'image' => ['type' => 'varchar', 'constraint' => 1000, 'null' => true],
             'question' => ['type' => 'varchar', 'constraint' => 1000],
             'response_1' => ['type' => 'varchar', 'constraint' => 1000],
             'response_2' => ['type' => 'varchar', 'constraint' => 1000],
@@ -37,7 +38,7 @@ class create_wonderlic_test_tables extends \CodeIgniter\Database\Migration
             'correct_response' => ['type' => 'enum', 'constraint' => ['1','2','3','4']],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('test_questions', true);
+        $this->forge->createTable('ca_test_questions', true);
 
         /*
          * Test Responses
@@ -50,9 +51,9 @@ class create_wonderlic_test_tables extends \CodeIgniter\Database\Migration
             'response_time' => ['type' => 'datetime'],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('test_id', 'tests','id','','CASCADE');
-        $this->forge->addForeignKey('question_id', 'test_questions','id','','CASCADE');
-        $this->forge->createTable('test_responses', true);
+        $this->forge->addForeignKey('test_id', 'ca_tests','id','','CASCADE');
+        $this->forge->addForeignKey('question_id', 'ca_test_questions','id','','CASCADE');
+        $this->forge->createTable('ca_test_responses', true);
     }
 
     /**
@@ -60,6 +61,8 @@ class create_wonderlic_test_tables extends \CodeIgniter\Database\Migration
      */
     public function down()
     {
-        // TODO: Implement down() method.
+        $this->forge->dropTable('ca_tests');
+        $this->forge->dropTable('ca_test_responses');
+        $this->forge->dropTable('ca_test_questions');
     }
 }

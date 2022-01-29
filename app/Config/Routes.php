@@ -31,11 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/catest/start','WonderlicController::start_test');
-$routes->post('/catest/record','WonderlicController::record_response');
-$routes->post('/catest/finish','WonderlicController::finish_test');
-$routes->get('/catest/view-results','WonderlicController::view_results');
-$routes->get('/catest/view-results/(:segment)','WonderlicController::view_results/$1');
+$routes->get('/catest/start','CATestController::start_test');
+$routes->post('/catest/record','CATestController::record_response');
+$routes->post('/catest/finish','CATestController::finish_test');
+$routes->get('/catest/view-results','CATestController::view_results');
+$routes->get('/catest/view-results/(:segment)','CATestController::view_results/$1');
 $routes->get('/patest/start','PersonalityAssessmentController::test');
 $routes->post('/patest/score','PersonalityAssessmentController::score_test');
 $routes->get('/patest/view-results','PersonalityAssessmentController::test_results');

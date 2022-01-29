@@ -6,7 +6,7 @@ use App\Entities\PATest;
 
 class PATestModel extends \CodeIgniter\Model
 {
-    protected $table      = 'pa_assesment';
+    protected $table      = 'pa_assessment';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;

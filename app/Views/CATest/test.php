@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \CodeIgniter\View\View $this
- * @var \App\Entities\WonderlicTestQuestion $firstQuestion
+ * @var \App\Entities\CATestQuestion $firstQuestion
  * @var string $testQuestions
  * @var int $testID
  */
@@ -21,7 +21,9 @@ $this->section('main');
                          class="<?= is_null($firstQuestion->image) ? 'visually-hidden' : '' ?>"
                          alt="Image For Question"/>
                 </div>
-                <h1><span id="question"><?= $firstQuestion->question ?></span></h1>
+                <span class="fs-3">
+                    <span id="question_number">#1</span>: <span id="question"><?= $firstQuestion->question ?></span>
+                </span>
                 <form id="response" class="mt-3">
                     <input class="visually-hidden" type="hidden" name="question_id" id="question_id"
                            value="<?= $firstQuestion->id ?>">
@@ -47,12 +49,6 @@ $this->section('main');
                         <input class="form-check-input" type="radio" name="response" id="option_4" value="4">
                         <label class="form-check-label" for="option_4" id="response_4">
                             <?= $firstQuestion->response_4 ?>
-                        </label>
-                    </div>
-                    <div class="form-check <?= is_null($firstQuestion->response_5) ? 'visually-hidden' : '' ?>">
-                        <input class="form-check-input" type="radio" name="response" id="option_5" value="5">
-                        <label class="form-check-label" for="option_5" id="response_5">
-                            <?= $firstQuestion->response_5 ?>
                         </label>
                     </div>
                     <div class="text-center">
@@ -81,7 +77,6 @@ $this->section('main');
     const option_2 = document.getElementById('option_2');
     const option_3 = document.getElementById('option_3');
     const option_4 = document.getElementById('option_4');
-    const option_5 = document.getElementById('option_5');
     const response_form = document.getElementById('response');
     const submit_button = document.getElementById('submit_button');
     const timerCountdownAudio = new Audio('/assets/audio/countdown.wav');
@@ -110,7 +105,7 @@ $this->section('main');
             switch (data.code) {
                 case 200:
                 case 201:
-                    window.location = '/wonderliccontroller/view_results/' + testID;
+                    window.location = '/catest/view-results/';
                     break;
                 default:
                     alert('Failed To Finish Test. Please take a screenshot of this error and abandon test.');
@@ -122,18 +117,17 @@ $this->section('main');
 
     function nextQuestion() {
         current_question++;
+        document.getElementById('question_number').innerHTML = '#' + (current_question + 1);
         question_id.value = testQuestions[current_question].id;
-        question.innerText = testQuestions[current_question].question;
-        response_1.innerText = testQuestions[current_question].response_1 ?? '';
-        response_2.innerText = testQuestions[current_question].response_2 ?? '';
-        response_3.innerText = testQuestions[current_question].response_3 ?? '';
-        response_4.innerText = testQuestions[current_question].response_4 ?? '';
-        response_5.innerText = testQuestions[current_question].response_5 ?? '';
+        question.innerHTML = testQuestions[current_question].question;
+        response_1.innerHTML = testQuestions[current_question].response_1 ?? '';
+        response_2.innerHTML = testQuestions[current_question].response_2 ?? '';
+        response_3.innerHTML = testQuestions[current_question].response_3 ?? '';
+        response_4.innerHTML = testQuestions[current_question].response_4 ?? '';
         option_1.checked = false;
         option_2.checked = false;
         option_3.checked = false;
         option_4.checked = false;
-        option_5.checked = false;
         if (testQuestions[current_question].response_1 == null) {
             option_1.parentElement.classList.add('visually-hidden');
         } else {
@@ -153,11 +147,6 @@ $this->section('main');
             option_4.parentElement.classList.add('visually-hidden');
         } else {
             option_4.parentElement.classList.remove('visually-hidden')
-        }
-        if (testQuestions[current_question].response_5 == null) {
-            option_5.parentElement.classList.add('visually-hidden');
-        } else {
-            option_5.parentElement.classList.remove('visually-hidden')
         }
         if (testQuestions[current_question].image === null) {
             question_image.src = '';
@@ -215,7 +204,7 @@ $this->section('main');
                 switch (data.code) {
                     case 200:
                     case 201:
-                        window.location = '/wonderliccontroller/view_results/' + testID;
+                        window.location = '/catest/view-results/';
                         break;
                     default:
                         alert('Failed To Finish Test. Please take a screenshot of this error and abandon test.');
