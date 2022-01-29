@@ -68,29 +68,29 @@ class PATest extends \CodeIgniter\Entity\Entity
         $y = $this->getYAxis();
         return match (true) {
             ($y < -10) => match (true) {
-                ($x < -10) => SalesType::PureAmiable,
-                ($x > -10 && $x < 0) => SalesType::AmiableExpressive,
-                ($x > 0 && $x < 10) => SalesType::ExpressiveAmiable,
-                ($x > 10) => SalesType::PureExpressive
+                ($x < -10) => new PersonalityType('PureAmiable'),
+                ($x > -10 && $x < 0) => new PersonalityType('AmiableExpressive'),
+                ($x > 0 && $x < 10) => new PersonalityType('ExpressiveAmiable'),
+                ($x > 10) => new PersonalityType('PureExpressive')
             },
             ($y > -10 && $y < 0) => match (true) {
-                ($x < -10) => SalesType::AmiableAnalytical,
-                ($x > -10 && $x < 0) => SalesType::AmiableFlexible,
-                ($x > 0 && $x < 10) => SalesType::ExpressiveFlexible,
-                ($x > 10) => SalesType::ExpressiveDriver
+                ($x < -10) => new PersonalityType('AmiableAnalytical'),
+                ($x > -10 && $x < 0) => new PersonalityType('AmiableFlexible'),
+                ($x > 0 && $x < 10) => new PersonalityType('ExpressiveFlexible'),
+                ($x > 10) => new PersonalityType('ExpressiveDriver')
             },
             ($y > 0 && $y < 10) => match (true) {
 
-                ($x < -10) => SalesType::AnalyticalAmiable,
-                ($x > -10 && $x < 0) => SalesType::AnalyticalFlexible,
-                ($x > 0 && $x < 10) => SalesType::DriverFlexible,
-                ($x > 10) => SalesType::DriverExpressive
+                ($x < -10) => new PersonalityType('AnalyticalAmiable'),
+                ($x > -10 && $x < 0) => new PersonalityType('AnalyticalFlexible'),
+                ($x > 0 && $x < 10) => new PersonalityType('DriverFlexible'),
+                ($x > 10) => new PersonalityType('DriverExpressive')
             },
             ($y > 10) => match (true) {
-                ($x < -10) => SalesType::PureAnalytical,
-                ($x > -10 && $x < 0) => SalesType::AnalyticalDriver,
-                ($x > 0 && $x < 10) => SalesType::DriverAnalytical,
-                ($x > 10) => SalesType::PureDriver
+                ($x < -10) => new PersonalityType('PureAnalytical'),
+                ($x > -10 && $x < 0) => new PersonalityType('AnalyticalDriver'),
+                ($x > 0 && $x < 10) => new PersonalityType('DriverAnalytical'),
+                ($x > 10) => new PersonalityType('PureDriver')
             }
         };
     }
