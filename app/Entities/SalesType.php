@@ -19,6 +19,7 @@ enum SalesType: string
     case AnalyticalDriver = 'Analytical Driver';
     case DriverAnalytical = 'Driver Analytical';
     case PureDriver = 'Pure Driver';
+    case Ninja = 'Ninja';
 
     public function getPrimaryType()
     {
@@ -26,14 +27,15 @@ enum SalesType: string
             self::AmiableAnalytical, self::AmiableExpressive, self::AmiableFlexible, self::PureAmiable => 'Amiable',
             self::AnalyticalAmiable, self::AnalyticalDriver, self::AnalyticalFlexible, self::PureAnalytical => 'Analytical',
             self::DriverAnalytical, self::DriverExpressive, self::DriverFlexible, self::PureDriver => 'Driver',
-            self::ExpressiveAmiable, self::ExpressiveDriver, self::ExpressiveFlexible, self::PureExpressive => 'Expressive'
+            self::ExpressiveAmiable, self::ExpressiveDriver, self::ExpressiveFlexible, self::PureExpressive => 'Expressive',
+            self::Ninja => 'Ninja'
         };
     }
 
     public function getSecondaryType()
     {
         return match ($this) {
-            self::PureExpressive, self::PureDriver, self::PureAnalytical, self::PureAmiable => 'None',
+            self::PureExpressive, self::PureDriver, self::PureAnalytical, self::PureAmiable, self::Ninja => 'None',
             self::ExpressiveFlexible, self::DriverFlexible, self::AnalyticalFlexible, self::AmiableFlexible => 'Flexible',
             self::ExpressiveDriver, self::AnalyticalDriver => 'Driver',
             self::DriverExpressive, self::AmiableExpressive => 'Expressive',
