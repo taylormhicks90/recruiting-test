@@ -18,9 +18,10 @@ class CATestController extends BaseController
     {
         $candidate_id = $this->session->get('candidate_id')?? throw PageNotFoundException::forPageNotFound('Candidate ID not found');
         $CATest = new CATest();
+        $CATest->candidate_id = $candidate_id;
         $test_model = model(CATestsModel::class);
-        $test_questions = model(CAQuestionsModel::class)->getTest();
         $this->session->set('CATestId', $testID = $test_model->insert($CATest,true));
+        $test_questions = model(CAQuestionsModel::class)->getTest();
         $testResponseModel = model(CAResponsesModel::class);
         $testResponse = new CATestResponse();
         $testResponse->test_id = $testID;
