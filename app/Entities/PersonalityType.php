@@ -33,4 +33,13 @@ class PersonalityType
             'Driver Analytical', 'Amiable Analytical' => 'Analytical'
         };
     }
+    public function getMaskedPrimary(){
+        return match ($this->getPrimaryType()){
+            'Amiable' => 'Shopkeeper',
+            'Analytical' => 'Repairperson',
+            'Driver' => 'Hunter',
+            'Expressive' => 'Farmer',
+            'Ninja' => 'Ninja'
+        };
+    }
 }
