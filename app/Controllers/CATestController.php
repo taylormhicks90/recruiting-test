@@ -22,7 +22,8 @@ class CATestController extends BaseController
      */
     public function start_test()
     {
-        $candidate_id = $this->session->get('candidate_id')?? throw PageNotFoundException::forPageNotFound('Candidate ID not found');
+        $candidate_id = $this->session->get('candidate_id')??
+            throw PageNotFoundException::forPageNotFound('Candidate ID not found');
 
         $test_model = model(CATestsModel::class);
         $test_questions = model(CAQuestionsModel::class)->getTest();
@@ -59,7 +60,7 @@ class CATestController extends BaseController
         try {
             $this->save_response();
             $this->response->setJSON(['message' => 'Successfully recorded response','code' => 200],true);
-        } /** @noinspection PhpRedundantCatchClauseInspection */ catch (ReflectionException|DataException){
+        } catch (ReflectionException|DataException){
             $this->response->setStatusCode(500);
             $this->response->setJSON(['message' =>'Failed to record response','code' => 500],true);
         }finally{
