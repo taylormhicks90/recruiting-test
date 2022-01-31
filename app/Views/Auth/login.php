@@ -1,4 +1,5 @@
-<?= $this->extend($config->viewLayout) ?>
+<?= /** @noinspection ALL */
+$this->extend($config->viewLayout) ?>
 <?= $this->section('main') ?>
 
 <div class="container">

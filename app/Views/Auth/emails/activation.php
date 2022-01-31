@@ -1,4 +1,4 @@
-<p>This is activation email for your account on <?= site_url() ?>.</p>
+<p>This is activation email for your account on /** @noinspection ALL *//** @noinspection ALL */<?= site_url() ?>.</p>
 
 <p>To activate your account use this URL.</p>
 

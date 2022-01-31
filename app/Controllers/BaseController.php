@@ -7,7 +7,6 @@ use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use Config\App;
 use Config\Services;
 use Psr\Log\LoggerInterface;
 

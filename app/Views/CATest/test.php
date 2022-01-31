@@ -72,7 +72,7 @@ $this->section('main');
     const response_2 = document.getElementById('response_2');
     const response_3 = document.getElementById('response_3');
     const response_4 = document.getElementById('response_4');
-    const response_5 = document.getElementById('response_5');
+    document.getElementById('response_5');
     const option_1 = document.getElementById('option_1');
     const option_2 = document.getElementById('option_2');
     const option_3 = document.getElementById('option_3');

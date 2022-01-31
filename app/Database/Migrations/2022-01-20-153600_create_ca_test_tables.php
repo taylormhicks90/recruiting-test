@@ -1,10 +1,10 @@
-<?php
+<?php /** @noinspection PhpIllegalPsrClassPathInspection */
 
 namespace App\Database\Migrations;
 
-use phpDocumentor\Reflection\Type;
+use CodeIgniter\Database\Migration;
 
-class create_ca_test_tables extends \CodeIgniter\Database\Migration
+class create_ca_test_tables extends Migration
 {
 
     /**

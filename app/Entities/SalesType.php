@@ -21,7 +21,7 @@ enum SalesType: string
     case PureDriver = 'Pure Driver';
     case Ninja = 'Ninja';
 
-    public function getPrimaryType()
+    public function getPrimaryType(): string
     {
         return match ($this) {
             self::AmiableAnalytical, self::AmiableExpressive, self::AmiableFlexible, self::PureAmiable => 'Amiable',

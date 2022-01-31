@@ -44,7 +44,7 @@ $this->section('main'); ?>
         <div class="col-6" id="personalityTestColumn">
             <div class="card h-100">
                 <div class="card-header bg-primary text-white">
-                    Personality Assesment
+                    Personality Assessment
                 </div>
                 <div class="card-body d-flex flex-column">
                     <?php if (!$paTestCompleted): ?>

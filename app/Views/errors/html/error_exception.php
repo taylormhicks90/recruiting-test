@@ -1,6 +1,22 @@
-<?php $error_id = uniqid('error', true); ?>
+<?php /** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection PhpUnhandledExceptionInspection */
+/** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection PhpRedundantOptionalArgumentInspection */
+/** @noinspection PhpRedundantOptionalArgumentInspection */
+/** @noinspection PhpRedundantOptionalArgumentInspection */
+/** @noinspection PhpRedundantOptionalArgumentInspection */
+$error_id = uniqid('error', true); ?>
 <!doctype html>
-<html>
+<!--suppress HtmlRequiredLangAttribute -->
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
@@ -85,8 +101,8 @@
 										<?php
                                         $params = null;
                                         // Reflection by name is not available for closure function
-                                        if (substr($row['function'], -1) !== '}') {
-                                            $mirror = isset($row['class']) ? new \ReflectionMethod($row['class'], $row['function']) : new \ReflectionFunction($row['function']);
+                                        if (!str_ends_with($row['function'], '}')) {
+                                            $mirror = isset($row['class']) ? new ReflectionMethod($row['class'], $row['function']) : new ReflectionFunction($row['function']);
                                             $params = $mirror->getParameters();
                                         }
 

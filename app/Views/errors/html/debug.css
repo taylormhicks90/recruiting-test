@@ -19,7 +19,7 @@ body {
 }
 h1 {
 	font-weight: lighter;
-	letter-spacing: 0.8;
+	letter-spacing: 0.8rem;
 	font-size: 3rem;
 	color: var(--dark-text-color);
 	margin: 0;
@@ -101,18 +101,16 @@ p.lead {
 }
 
 .tabs {
-	list-style: none;
-	list-style-position: inside;
-	margin: 0;
+	list-style: none inside none;
 	padding: 0;
-	margin-bottom: -1px;
+	margin: 0 0 -1px;
 }
 .tabs li {
 	display: inline;
 }
 .tabs a:link,
 .tabs a:visited {
-	padding: 0rem 1rem;
+	padding: 0 1rem;
 	line-height: 2.7;
 	text-decoration: none;
 	color: var(--dark-text-color);

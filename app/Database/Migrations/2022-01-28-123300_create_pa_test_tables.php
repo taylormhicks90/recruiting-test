@@ -1,8 +1,10 @@
-<?php
+<?php /** @noinspection PhpIllegalPsrClassPathInspection */
 
 namespace App\Database\Migrations;
 
-class create_pa_test_tables extends \CodeIgniter\Database\Migration
+use CodeIgniter\Database\Migration;
+
+class create_pa_test_tables extends Migration
 {
 
     /**

@@ -34,7 +34,7 @@ $this->section('main');
                             ['Seek Facts', 'Assertive', 'Informal', 'Co-Operative'],
                             ['Disciplined', 'Dominant', 'Need Better Time Management Skills', 'Even Paced'],
                             ['Difficult To Get To Know', 'Firm Handshake', 'Impulsive', 'Supportive of Others'],
-                            ['Somewhat Interpersonal', 'Make Statments as Opposed to Asking Questions', 'Approachable', 'Team Player'],
+                            ['Somewhat Interpersonal', 'Make Statements as Opposed to Asking Questions', 'Approachable', 'Team Player'],
                             ['Businesslike', 'Socially Outgoing', 'Prefer Informal Dress', 'Cautious'],
                             ['Usually Avoid Small Task','Expressive','Easy To Get To Know','Like To Help Others'],
                             ['Always Dress Appropriately','Excitable','Personable','Prefer Others To Start Conversation'],

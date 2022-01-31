@@ -2,6 +2,8 @@
 
 namespace App\Entities;
 
+use DivisionByZeroError;
+
 class FinishedTest
 {
     /**
@@ -46,7 +48,7 @@ class FinishedTest
     public function getPercentageScore() : float{
         try {
             return ($this->correct_answers / count($this->questions)) * 100;
-        }catch (\DivisionByZeroError){
+        }catch (DivisionByZeroError){
             return 0.0;
         }
     }

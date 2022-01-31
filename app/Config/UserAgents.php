@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection GrazieInspection */
+
+/** @noinspection GrazieInspection */
 
 namespace Config;
 

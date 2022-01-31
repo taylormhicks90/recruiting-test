@@ -2,8 +2,11 @@
 
 namespace App\Entities;
 
-class PATest extends \CodeIgniter\Entity\Entity
+use CodeIgniter\Entity\Entity;
+
+class PATest extends Entity
 {
+
     public function fill(?array $data = null)
     {
         $this->setAAnswers($data['a']??[]);
@@ -59,7 +62,7 @@ class PATest extends \CodeIgniter\Entity\Entity
 
     public function getYAxis(): int
     {
-        return count($this->getAAnswers()) - count($this?->getCAnswers());
+        return count($this->getAAnswers()) - count($this->getCAnswers());
     }
 
     public function getType()
