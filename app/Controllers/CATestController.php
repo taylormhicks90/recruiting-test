@@ -10,7 +10,6 @@ use App\Models\CATestsModel;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\Database\Exceptions\DataException;
 use CodeIgniter\Exceptions\PageNotFoundException;
-use http\Exception\RuntimeException;
 use ReflectionException;
 
 class CATestController extends BaseController
