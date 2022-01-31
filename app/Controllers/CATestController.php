@@ -7,42 +7,59 @@ use App\Entities\CATestResponse;
 use App\Models\CAQuestionsModel;
 use App\Models\CAResponsesModel;
 use App\Models\CATestsModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\Database\Exceptions\DataException;
 use CodeIgniter\Exceptions\PageNotFoundException;
+use http\Exception\RuntimeException;
 use ReflectionException;
 
 class CATestController extends BaseController
 {
 
+    /**
+     * @return string
+     * @throws \CodeIgniter\Database\Exceptions\DatabaseException
+     */
     public function start_test()
     {
         $candidate_id = $this->session->get('candidate_id')?? throw PageNotFoundException::forPageNotFound('Candidate ID not found');
-        $CATest = new CATest();
+
         $test_model = model(CATestsModel::class);
         $test_questions = model(CAQuestionsModel::class)->getTest();
-        $this->session->set('candidateId', $CATest->candidate_id = $candidate_id);
-        $this->session->set('CATestStartTime', $CATest->start_time = time());
-        $this->session->set('CATestId', $testID = $test_model->insert($CATest,true));
-        $this->session->set('testQuestions',$test_questions);
         $testResponseModel = model(CAResponsesModel::class);
+
+        $CATest = new CATest();
         $testResponse = new CATestResponse();
-        $testResponse->test_id = $testID;
-        foreach ($test_questions as $question){
-            $testResponse->question_id = $question->id;
-            $testResponseModel->insert($testResponse);
+
+        $CATest->candidate_id = $candidate_id;
+        try {
+            $testID = $test_model->insert($CATest, true);
+            $this->session->set('CATestId', $testID);
+
+            $testResponse->test_id = $testID;
+            foreach ($test_questions as $question) {
+                $testResponse->question_id = $question->id;
+                $testResponseModel->insert($testResponse);
+            }
+        }catch (ReflectionException|DataException $exception){
+            throw new DatabaseException('Unable To Create Test');
         }
         $this->setViewData('firstQuestion',$test_questions[0]);
         $this->setViewData('testQuestions', json_encode($test_questions));
         $this->setViewData('testID',$testID);
         return $this->_render('CATest/test');
     }
+
+    /**
+     *
+     */
     public function record_response()
     {
         $this->response->setContentType('application/json');
         try {
             $this->save_response();
             $this->response->setJSON(['message' => 'Successfully recorded response','code' => 200],true);
-        }catch (ReflectionException|DataException){
+        } /** @noinspection PhpRedundantCatchClauseInspection */ catch (ReflectionException|DataException){
             $this->response->setStatusCode(500);
             $this->response->setJSON(['message' =>'Failed to record response','code' => 500],true);
         }finally{
@@ -50,6 +67,9 @@ class CATestController extends BaseController
         }
     }
 
+    /**
+     *
+     */
     public function finish_test()
     {
         $this->response->setContentType('application/json');
@@ -68,6 +88,9 @@ class CATestController extends BaseController
 
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     private function save_response() : void{
         $allowedFields = ['question_id','response'];
         $input = $this->request->getJSON(true);
@@ -78,6 +101,10 @@ class CATestController extends BaseController
     }
 
 
+    /**
+     * @param string|null $candidate_id
+     * @return string
+     */
     public function view_results(string $candidate_id = null){
         if(is_null($candidate_id)){
             $candidate_id = $this->session->get('candidate_id') ?? throw PageNotFoundException::forPageNotFound();

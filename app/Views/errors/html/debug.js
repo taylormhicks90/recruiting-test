@@ -1,4 +1,5 @@
 // Tabs
+// noinspection ES6ConvertVarToLetConst,JSDuplicatedDeclaration,JSPrimitiveTypeWrapperUsage,JSUnresolvedVariable,EqualityComparisonWithCoercionJS
 
 var tabLinks    = new Array();
 var contentDivs = new Array();

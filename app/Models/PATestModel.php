@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Entities\PATest;
+use CodeIgniter\Model;
 
-class PATestModel extends \CodeIgniter\Model
+class PATestModel extends Model
 {
     protected $table      = 'pa_assessment';
     protected $primaryKey = 'id';

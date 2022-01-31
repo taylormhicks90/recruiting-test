@@ -2,8 +2,11 @@
 
 namespace App\Entities;
 
-class PATest extends \CodeIgniter\Entity\Entity
+use CodeIgniter\Entity\Entity;
+
+class PATest extends Entity
 {
+
     public function fill(?array $data = null)
     {
         $this->setAAnswers($data['a']??[]);
@@ -59,7 +62,7 @@ class PATest extends \CodeIgniter\Entity\Entity
 
     public function getYAxis(): int
     {
-        return count($this->getAAnswers()) - count($this?->getCAnswers());
+        return count($this->getAAnswers()) - count($this->getCAnswers());
     }
 
     public function getType()
@@ -73,37 +76,37 @@ class PATest extends \CodeIgniter\Entity\Entity
         if ($y == -10) $y++;
         if ($y == 10) $y++;
         //We are going to define a special type for 0,0 otherwise values of 0 on either axis result in an undefined type
-        //if the person scores 0,0 we will leave them alone other wise we round down away from our desired type
+        //if the person scores 0,0 we will leave them alone otherwise we round down away from our desired type
         if (!($x == 0 && $y == 0)){
             if($x == 0) $x--;
             if($y == 0) $y--;
         }
         return match (true) {
-            ($x ==0 && $y == 0) => SalesType::Ninja,
+            ($x ==0 && $y == 0) => new PersonalityType('Ninja'),
             ($y < -10) => match (true) {
-                ($x < -10) => SalesType::PureAmiable,
-                ($x > -10 && $x < 0) => SalesType::AmiableExpressive,
-                ($x > 0 && $x < 10) => SalesType::ExpressiveAmiable,
-                ($x > 10) => SalesType::PureExpressive
+                ($x < -10) => new PersonalityType('Pure Amiable'),
+                ($x > -10 && $x < 0) => new PersonalityType('Amiable Expressive'),
+                ($x > 0 && $x < 10) => new PersonalityType('Expressive Amiable'),
+                ($x > 10) => new PersonalityType('Pure Expressive')
             },
             ($y > -10 && $y < 0) => match (true) {
-                ($x < -10) => SalesType::AmiableAnalytical,
-                ($x > -10 && $x < 0) => SalesType::AmiableFlexible,
-                ($x > 0 && $x < 10) => SalesType::ExpressiveFlexible,
-                ($x > 10) => SalesType::ExpressiveDriver
+                ($x < -10) => new PersonalityType('Amiable Analytical'),
+                ($x > -10 && $x < 0) => new PersonalityType('Amiable Flexible'),
+                ($x > 0 && $x < 10) => new PersonalityType('Expressive Flexible'),
+                ($x > 10) => new PersonalityType('Expressive Driver')
             },
             ($y > 0 && $y < 10) => match (true) {
 
-                ($x < -10) => SalesType::AnalyticalAmiable,
-                ($x > -10 && $x < 0) => SalesType::AnalyticalFlexible,
-                ($x > 0 && $x < 10) => SalesType::DriverFlexible,
-                ($x > 10) => SalesType::DriverExpressive
+                ($x < -10) => new PersonalityType('Analytical Amiable'),
+                ($x > -10 && $x < 0) => new PersonalityType('Analytical Flexible'),
+                ($x > 0 && $x < 10) => new PersonalityType('Driver Flexible'),
+                ($x > 10) => new PersonalityType('Driver Expressive')
             },
             ($y > 10) => match (true) {
-                ($x < -10) => SalesType::PureAnalytical,
-                ($x > -10 && $x < 0) => SalesType::AnalyticalDriver,
-                ($x > 0 && $x < 10) => SalesType::DriverAnalytical,
-                ($x > 10) => SalesType::PureDriver
+                ($x < -10) => new PersonalityType('Pure Analytical'),
+                ($x > -10 && $x < 0) => new PersonalityType('Analytical Driver'),
+                ($x > 0 && $x < 10) => new PersonalityType('Driver Analytical'),
+                ($x > 10) => new PersonalityType('Pure Driver')
             }
         };
     }

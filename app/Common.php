@@ -1,4 +1,5 @@
 <?php
+/** @noinspection GrazieInspection */
 
 /**
  * The goal of this file is to allow developers a location

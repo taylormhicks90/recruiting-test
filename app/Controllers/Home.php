@@ -2,12 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Entities\PATest;
 use App\Models\PATestModel;
 use App\Models\CAResponsesModel;
 use App\Models\CATestsModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
-use function PHPUnit\Framework\isEmpty;
 
 class Home extends BaseController
 {

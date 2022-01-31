@@ -1,8 +1,10 @@
-<?php
+<?php /** @noinspection SpellCheckingInspection */
 
 namespace App\Database\Seeds;
 
-class CATestSeeder extends \CodeIgniter\Database\Seeder
+use CodeIgniter\Database\Seeder;
+
+class CATestSeeder extends Seeder
 {
 
     public function run()
@@ -104,7 +106,7 @@ class CATestSeeder extends \CodeIgniter\Database\Seeder
                 'correct_response' => '2'
             ], [
                 'question' => '<b>Use the completed order form above to answer the questions 8-11.</b></br>' .
-                    'The color of the men\'s sweater being orderd is __________',
+                    'The color of the men\'s sweater being ordered is __________',
                 'image' => '/assets/img/question_images/questions_8_11.png',
                 'response_1' => 'white',
                 'response_2' => 'black',
@@ -263,7 +265,7 @@ class CATestSeeder extends \CodeIgniter\Database\Seeder
                 'correct_response' => '3'
             ], [
                 'question' => '<b>Read the steps above for painting a room and then answer the question.</b><br/><br/>'.
-                    'The directions suggest paintng the ceiling first because:',
+                    'The directions suggest painting the ceiling first because:',
                 'image' => '/assets/img/question_images/questions_28_30.png',
                 'response_1' => 'Drips will matter less.',
                 'response_2' => 'The lap marks are more obvious.',

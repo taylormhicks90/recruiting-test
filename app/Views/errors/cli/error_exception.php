@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection ALL */
+
+/** @noinspection ALL */
 
 use CodeIgniter\CLI\CLI;
 
@@ -42,19 +44,12 @@ if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE) {
         }
 
         $args = implode(', ', array_map(static function ($value) {
-            switch (true) {
-                case is_object($value):
-                    return 'Object(' . get_class($value) . ')';
-
-                case is_array($value):
-                    return count($value) ? '[...]' : '[]';
-
-                case $value === null:
-                    return 'null'; // return the lowercased version
-
-                default:
-                    return var_export($value, true);
-            }
+            return match (true) {
+                is_object($value) => 'Object(' . get_class($value) . ')',
+                is_array($value) => count($value) ? '[...]' : '[]',
+                $value === null => 'null',
+                default => var_export($value, true),
+            };
         }, array_values($error['args'] ?? [])));
 
         $function .= '(' . $args . ')';
